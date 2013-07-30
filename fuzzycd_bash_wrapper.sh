@@ -16,7 +16,7 @@ cd() {
   fuzzycd.rb $*
   # fuzzycd.rb communicates to this bash wrapper through a temp file, because it uses STDOUT for other purposes.
   output=`cat /tmp/fuzzycd.rb.out`
-  `rm /tmp/fuzzycd.rb.out`
+  `rm -f /tmp/fuzzycd.rb.out`
   if [ "$output" = "@nomatches" ]; then
     echo "No files match \"$*\""
   elif [ "$output" = "@passthrough" ]; then

@@ -47,11 +47,11 @@ def present_menu_with_options(options)
     ctrl_c = "\003"
     return nil if input == ctrl_c
 
-    # We may require two characters with more than 10 choices. If the second character is "enter" (10),
-    # ignore it.
+    # We may require two characters with more than 10 choices. If the second character is "enter" (10)
+    # or space, ignore it.
     if options.length > 9
       char = STDIN.getc.chr
-      input += char unless (char == 10)
+      input += char unless (char == 10 || char == " ")
     end
 
     # Require numeric input.
