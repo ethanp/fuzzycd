@@ -91,7 +91,8 @@ def matches_for_path(path)
   end
 
   glob_expression = "*" + path.gsub("/", "*/*") + "*"
-  # this is where one could make it case insensitive
+  # Dir.glob(pattern, [flags]): returns filenames found by expanding [globString or globArray]
+  #   FNM_CASEFOLD: "The glob is matched in a case-insensitive fashion."
   Dir.glob(root + glob_expression, File::FNM_CASEFOLD).select { |file| File.directory?(file) }
 end
 
